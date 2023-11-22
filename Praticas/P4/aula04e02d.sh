@@ -13,10 +13,10 @@ case "$?" in
     echo "$1 equal to $2"
     ;;
   1)
-    echo "$1 are bigger!"
+    echo "$1 is bigger!"
     ;;
   2)
-    echo "$2 are bigger!"
+    echo "$2 is bigger!"
     ;;
   *)
     echo "ERROR!!!"
