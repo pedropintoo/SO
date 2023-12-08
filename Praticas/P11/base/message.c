@@ -70,7 +70,7 @@ int msg_send_nb (int msgid, void *msg, int size)
  * \param dest destination id
  * \param status pointer to success on repeption status
  * \return 0 on success; -1 on error, being errno set with the cause
- */
+*/
 int msg_receive_nb (int msgid, void *msg, int size, long dest, bool *msgrec)
 {
     int stat;

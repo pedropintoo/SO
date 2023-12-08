@@ -25,7 +25,7 @@ int main(void)
 
         /* sending messagee */
         cliSend(&msg);
-
+        
         /* getting response */
         cliReceive(&msg);
 

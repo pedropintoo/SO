@@ -16,7 +16,6 @@
 int main(void)
 {
    MESSAGE msg;
-   int nProc = 0;
 
    /* abre o canal de comunicacao */
    cliOpenComm();
@@ -28,26 +27,17 @@ int main(void)
         fgets(msg.data, MSG_MAX, stdin);
         msg.size = strlen(msg.data+1);
 
-        if(fork() == 0) {
-            nProc++;
-            /* envia mensagem */
-            cliSend(&msg);
+        /* envia mensagem */
+        cliSend(&msg);
 
-            /* aguarda e recolhe resposta */
-            cliReceive(&msg);
-            /* imprime mensagem recebida */
-            printf("Mensagem recebida: %s\n", msg.data);
-            break;
-        }
+        /* aguarda e recolhe resposta */
+        cliReceive(&msg);
+        
+        /* imprime mensagem recebida */
+        printf("Mensagem recebida: %s\n", msg.data);
+        break;
 
     } 
-
-   /* espera pelos termo dos incrementadores e sai */
-    for (int i = 0; i < nProc; i++) {
-        wait(NULL);
-    }
-
-    nProc--;
 
    /* fecha o canal de comunicacao */
    cliCloseComm();
