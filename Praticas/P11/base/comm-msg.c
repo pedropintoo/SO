@@ -128,7 +128,7 @@ void cliCloseComm(void)
 void cliSend(MESSAGE *msg)
 {
     /* copy message into container */
-    container.client = (long) getpid(); // (long) getpid()
+    container.client = (long) getpid(); // !!!
     container.msg = *msg;
 
     /* send message */
